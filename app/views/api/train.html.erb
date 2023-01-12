@@ -1,0 +1,11 @@
+<h1>Train AI Model</h1>
+
+<%= form_tag("/ai/train", method: "post") do %>
+  <%= label_tag(:input_data, "Input Data") %>
+  <%= file_field_tag(:input_data) %>
+
+  <%= label_tag(:output_data, "Output Data") %>
+  <%= file_field_tag(:output_data) %>
+
+  <%= submit_tag("Train Model") %>
+<% end %>

@@ -14,16 +14,9 @@ class AiController < ApplicationController
         render json: { prediction: prediction }
     end
     def train
-        data = TrainingData.all
+        data = TrainingDatum.all
         input_data = data.map { |row| row.input_data }
         output_data = data.map { |row| row.output_data }
     
-        model = TensorFlow::Keras::Sequential.new
-        model.add(TensorFlow::Keras::layers::Dense.new(64, activation: 'relu'))
-        model.add(TensorFlow::Keras::layers::Dense.new(32, activation: 'relu'))
-        model.add(TensorFlow::Keras::layers::Dense.new(1, activation: 'sigmoid'))
-        model.compile(optimizer: 'adam', loss: 'mean_squared_error')
-    
-        model.fit(input_data, output_data, epochs: 10)
-      end
+    end
   end

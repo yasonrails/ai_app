@@ -1,0 +1,8 @@
+<h1>Predict using AI Model</h1>
+
+<%= form_tag("/ai/predict", method: "post") do %>
+  <%= label_tag(:input_data, "Input Data") %>
+  <%= file_field_tag(:input_data) %>
+
+  <%= submit_tag("Make Prediction") %>
+<% end %>
